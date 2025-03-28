@@ -63,7 +63,7 @@ return  (
           ))}
         </div>
         <div>
-          <Link href={"/pro"}>
+          <Link href={"/pro"} className="items-center">
             <Button size={"lg"} className="group hover:bg-purple-600 transition-colors duration-300">
               MemberShip Plans
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
