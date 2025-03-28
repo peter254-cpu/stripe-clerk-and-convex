@@ -8,8 +8,8 @@ const Navbar = () => {
   return (
     <div className='w-full flex  flex-wrap justify-between items-center py-4 px-6 bg-background border-b'>
         <Link href={"/"} className='text-xl font-extrabold text-primary flex items-center gap-2'>
-            CourseHub
-            <GraduationCap className="size-6" />
+            <span className='text-left sm:text-center md:text-left'>CourseHub</span>
+            <GraduationCap className="size-6 hidden md:inline xl:inline" />
         </Link>
         <div className='flex items-center space-x-1 sm:space-x-4 '>
             <Link 
