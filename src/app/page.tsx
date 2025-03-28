@@ -1,9 +1,13 @@
 import { ConvexHttpClient } from "convex/browser";
 import { api } from "../../convex/_generated/api";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
 import { CardHeader } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 
 
@@ -31,9 +35,40 @@ return  (
                           className="rounded-md object-cover"                     
                         />
                     </CardHeader>
-                </Link>
+                    <CardContent className="flex-grow">
+                      <CardTitle className="text-xl mb-2 hover:underline">
+                        {course.title}
+                      </CardTitle>
+                    </CardContent>
+                    </Link>
+
+                    <CardFooter className="flex justify-between items-center">
+                          <Badge variant="default" className="text-lg px-3 py-1">
+                            $ {course.price.toFixed(2)}
+                          </Badge>
+                          <SignedIn>
+                            <Button variant={"outline"}>
+                              Enroll
+                            </Button>
+                          </SignedIn>
+                        <SignedOut>
+                          <SignInButton mode="modal">
+                            <Button variant={"outline"}>
+                              Enroll Now
+                            </Button>
+                          </SignInButton>
+                        </SignedOut>
+                </CardFooter>
             </Card>
           ))}
+        </div>
+        <div>
+          <Link href={"/pro"}>
+            <Button size={"lg"} className="group hover:bg-purple-600 transition-colors duration-300">
+              MemberShip Plans
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>  
         </div>       
     </main>
   </div>
