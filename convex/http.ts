@@ -45,6 +45,9 @@ const clerkWebHook  = httpAction(async (ctx, request) => {
 
     try {
         await ctx.runMutation(api.users.createUser, {email, name, clerkId: id})
+
+        //TODO -> CREATE STRIPE CUSTOMER AS WELL 
+        //SEND A WELCOME EMAIL
     } catch (error) {
         console.error("Error creating user in convex", error)
         return new Response("Error creating user", {status: 500})
